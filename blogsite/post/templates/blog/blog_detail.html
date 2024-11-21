@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    padding: 20px; min-height: 80vh; background: linear-gradient(135deg, #f9f9f9, #eaeaea);">
+    <div style="max-width: 800px; background: white; padding: 30px; border-radius: 8px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; max-height: 400px; 
+                object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        {% else %}
+            <img src="{% static 'images/placeholder.jpg' %}" alt="Placeholder Image" style="width: 100%; 
+                max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        {% endif %}
+        <h1 style="font-size: 2rem; color: #333; margin-bottom: 10px;">{{ post.title }}</h1>
+        <small style="color: #888; font-size: 0.9rem;">By {{ post.author }} | {{ post.created_on|date:"F j, Y" }}</small>
+        <hr style="border: 1px solid #eaeaea; margin: 20px 0;">
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.8; text-align: justify;">{{ post.body }}</p>
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="{% url 'home' %}" style="text-decoration: none; background: #007bff; color: white; 
+                padding: 10px 20px; border-radius: 4px; font-size: 1rem;">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

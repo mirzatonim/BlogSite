@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="profile-container">
+    <h2>Profile Information</h2>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- <p><strong>Date Joined:</strong> {{ user.date_joined }}</p> -->
+    <a href="{% url 'setting' %}" class="btn">Edit Profile</a>
+</div>
+{% endblock %}

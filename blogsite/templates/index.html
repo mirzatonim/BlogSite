@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home | Blogs
+{% endblock %}
+
+{% block content %}
+<section class="hero ">
+    <h2>Discover Amazing Stories</h2>
+    <p>Your go-to place for inspiring and insightful blogs on various topics.</p>
+</section>
+
+<section class="blog-section">
+    {% for post in page_obj.object_list %}
+        <div class="blog-card">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% else %}
+                <img src="{% static 'images/placeholder.jpg' %}" alt="Placeholder">
+            {% endif %}
+            <h3>{{ post.title }}</h3>
+            <small style="color: #888;">By: {{ post.author }}</small>
+            <p>{{ post.body|truncatechars:150 }}<small><a href="{% url 'blog_detail' post.id %}">Learn more</a></small></p>
+        </div>
+
+        
+    {% empty %}
+        <p>No blogs available at the moment. Check back later!</p>
+    {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+    
+            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</section>
+{% endblock %}

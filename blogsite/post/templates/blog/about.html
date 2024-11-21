@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    padding: 20px; min-height: 80vh; background: linear-gradient(135deg, #9c9797, #634545);">
+    <div style="max-width: 800px; background: white; padding: 30px; border-radius: 8px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <h1 style="font-size: 2rem; color: #333; text-align: center; margin-bottom: 20px;">About Us</h1>
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+            Welcome to <strong>BlogSite</strong>, your go-to platform for sharing and discovering blogs. Our mission is to empower people through inspiring, thought-provoking, and educational content. 
+        </p>
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+            Whether you're a writer looking for a place to express your ideas or a reader seeking fresh perspectives, we provide a modern, easy-to-use platform that connects storytellers and seekers of knowledge from around the globe.
+        </p>
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+            <strong>Our Features Include:</strong>
+            <ul style="margin-left: 20px; padding-left: 0; list-style-type: disc; color: #555; font-size: 1rem;">
+                <li>Seamless blogging tools for writers</li>
+                <li>A vibrant community of passionate readers</li>
+                <li>Powerful search functionality to discover content</li>
+                <li>User-friendly design for an enjoyable experience</li>
+            </ul>
+        </p>
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
+            Thank you for being part of our journey. Together, we can create a world filled with knowledge, creativity, and inspiration!
+        </p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{% url 'home' %}" style="text-decoration: none; background: #007bff; color: white; 
+                padding: 10px 20px; border-radius: 4px; font-size: 1rem;">Explore Blogs</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; min-height: 80vh; background-color: #f9f9f9;">
+    <div style="width: 100%; max-width: 400px; background-color: white; border-radius: 10px; padding: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; margin-bottom: 20px; font-size: 1.8rem; color: #333;">Sign Up</h2>
+        <form method="post" style="display: flex; flex-direction: column; gap: 15px;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" style="padding: 10px; background-color: #0066cc; color: white; font-size: 1rem; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                Sign Up
+            </button>
+        </form>
+        <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: #666;">
+            Already have an account? <a href="{% url 'login' %}" style="color: #0066cc; text-decoration: none;">Log In</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
